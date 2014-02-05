@@ -72,12 +72,8 @@ static const NSInteger kPageWidth = 260;
 #pragma mark - scrollViewDelegate
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.dummyScrollView &&  self.collectionView.contentOffset.x != scrollView.contentOffset.x) {
+    if (scrollView == self.dummyScrollView) {
         CGPoint contentOffset = scrollView.contentOffset;
-        contentOffset.x = contentOffset.x - self.collectionView.contentInset.left;
-        self.collectionView.contentOffset = contentOffset;
-    } else { // fix for random movemnts on tap
-        CGPoint contentOffset = self.dummyScrollView.contentOffset;
         contentOffset.x = contentOffset.x - self.collectionView.contentInset.left;
         self.collectionView.contentOffset = contentOffset;
     }
